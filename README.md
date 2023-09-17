@@ -8,7 +8,8 @@ When using Swift's structured concurrency in SwiftUI it is good practice to
 tie the tasks to the relevant view's lifetime in order to support task 
 cancellation should the view be dismissed.
 
-> Info: Usually a task might not take all that long that we would even care for 
+> **Info**
+> Usually a task might not take all that long that we would even care for 
 > cancellation. But imagine downloading some large amounts of data from a remote
 > server which – depending on the network connection – could take a consiterable
 > amount of time. When the user decides to dismiss the view it might be good to 
@@ -41,7 +42,8 @@ var body: some View {
 }
 ```
 
-> Note: We need to check that `triggerTask` is indeed `true`, and otherwise return. 
+> **Note**
+> We need to check that `triggerTask` is indeed `true`, and otherwise return. 
 > We also need to reset `triggerTask` at the end of execution. Otherwise another
 > tap wouldn't trigger the `task(id:priority:_:)` again.
 >
@@ -68,7 +70,8 @@ var body: some View {
 }
 ```
 
-> Note: In this case we have an optional integer and we set it to the index of the button
+> **Note**
+> In this case we have an optional integer and we set it to the index of the button
 > in the list once pressed. We need to unwrap the optional value and reset it to `nil` afterwards.
 
 This approach, while it really works well, comes with a lot of overhead directly in our view.
@@ -103,7 +106,8 @@ var body: some View {
 5. All cancellation related handling, sanity checking, as well as resetting the state is handled
 automatically behind the scenes.
 
-> Info: You might wonder why there's an optional parameter `id` on the `trigger(value:id:)` method.
+> **Info**
+> You might wonder why there's an optional parameter `id` on the `trigger(value:id:)` method.
 > By default this will create a new `UUID` whenever the method is called. This means we can tap the
 > same button multiple times and prior operations will get cancelled if they are still running.
 >
