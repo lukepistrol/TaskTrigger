@@ -8,7 +8,7 @@ When using Swift's structured concurrency in SwiftUI it is good practice to
 tie the tasks to the relevant view's lifetime in order to support task 
 cancellation should the view be dismissed.
 
-> **Info**
+> **Note**
 > Usually a task might not take all that long that we would even care for 
 > cancellation. But imagine downloading some large amounts of data from a remote
 > server which – depending on the network connection – could take a consiterable
@@ -106,7 +106,7 @@ var body: some View {
 5. All cancellation related handling, sanity checking, as well as resetting the state is handled
 automatically behind the scenes.
 
-> **Info**
+> **Note**
 > You might wonder why there's an optional parameter `id` on the `trigger(value:id:)` method.
 > By default this will create a new `UUID` whenever the method is called. This means we can tap the
 > same button multiple times and prior operations will get cancelled if they are still running.
