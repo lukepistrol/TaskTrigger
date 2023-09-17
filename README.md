@@ -7,6 +7,7 @@ Attach async tasks to SwiftUI views using a trigger mechanism.
 
 ## Table Of Contents
 
+- [Usage](#usage)
 - [Overview](#overview)
 - [The Problem](#the-problem)
 - [The Solution](#the-solution)
