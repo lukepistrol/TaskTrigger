@@ -2,6 +2,12 @@
 
 Attach async tasks to SwiftUI views using a trigger mechanism.
 
+## Table Of Contents
+
+- [Overview](#overview)
+- [The Problem](#the-problem)
+- [The Solution](#the-solution)
+
 ## Overview
 
 When using Swift's structured concurrency in SwiftUI it is good practice to
