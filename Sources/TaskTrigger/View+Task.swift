@@ -13,10 +13,10 @@ public extension View {
     ///   - trigger: A binding to a ``TaskTrigger/TaskTrigger``.
     ///   - action: An async action to perform whenever the trigger fires. The attached value
     ///   is passed into the closure as an argument.
-    func task<T>(
-        _ trigger: Binding<TaskTrigger<T>>,
-        _ action: @escaping @Sendable @MainActor (_ value: T) async -> Void
-    ) -> some View where T: Equatable {
+    func task<Value: Equatable>(
+        _ trigger: Binding<TaskTrigger<Value>>,
+        _ action: @escaping @Sendable @MainActor (_ value: Value) async -> Void
+    ) -> some View {
         modifier(TaskTriggerViewModifier(trigger: trigger, action: action))
     }
 

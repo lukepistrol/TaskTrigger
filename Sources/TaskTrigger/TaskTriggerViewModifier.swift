@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct TaskTriggerViewModifier<T: Equatable>: ViewModifier {
+struct TaskTriggerViewModifier<Value: Equatable>: ViewModifier {
 
-    typealias Action = @Sendable (_ value: T) async -> Void
+    typealias Action = @Sendable (_ value: Value) async -> Void
 
     internal init(
-        trigger: Binding<TaskTrigger<T>>,
+        trigger: Binding<TaskTrigger<Value>>,
         action: @escaping Action
     ) {
         self._trigger = trigger
@@ -20,7 +20,7 @@ struct TaskTriggerViewModifier<T: Equatable>: ViewModifier {
     }
 
     @Binding 
-    private var trigger: TaskTrigger<T>
+    private var trigger: TaskTrigger<Value>
     
     private let action: Action
 
