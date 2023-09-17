@@ -1,0 +1,17 @@
+name: build
+on: push
+
+jobs:
+  build-documentation:
+    runs-on: macOS-13
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Build iOS
+        run: exec ./.github/scripts/build.sh iOS
+      - name: Build macOS
+        run: exec ./.github/scripts/build.sh macOS
+      - name: Build tvOS
+        run: exec ./.github/scripts/build.sh tvOS
+      - name: Build watchOS
+        run: exec ./.github/scripts/build.sh watchOS
