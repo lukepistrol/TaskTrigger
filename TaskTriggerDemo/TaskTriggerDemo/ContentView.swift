@@ -95,14 +95,12 @@ struct ContentView: View {
      operation like a network call or some other (possibly) expensive operation.
      */
 
-    @MainActor
     private func setRandomNumber(_ value: Int) async {
         try? await Task.sleep(for: .seconds(1))
         if Task.isCancelled { return }
         self.randomNumber = value
     }
 
-    @MainActor
     private func resetToZero() async {
         try? await Task.sleep(for: .seconds(1))
         if Task.isCancelled { return }
