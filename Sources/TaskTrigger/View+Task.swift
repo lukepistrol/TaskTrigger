@@ -26,7 +26,7 @@ public extension View {
     ///   - action: An async action to perform whenever the trigger fires.
     func task(
         _ trigger: Binding<PlainTaskTrigger>,
-        _ action: @escaping @Sendable () async -> Void
+        _ action: @escaping @Sendable @MainActor () async -> Void
     ) -> some View {
         modifier(TaskTriggerViewModifier(trigger: trigger, action: { _ in await action() }))
     }
