@@ -16,7 +16,7 @@ public extension View {
     func task<Value: Equatable>(
         _ trigger: Binding<TaskTrigger<Value>>,
         _ action: @escaping @Sendable @MainActor (_ value: Value) async -> Void
-    ) -> some View {
+    ) -> some View where Value: Sendable {
         modifier(TaskTriggerViewModifier(trigger: trigger, action: action))
     }
 

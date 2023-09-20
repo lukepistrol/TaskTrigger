@@ -15,10 +15,12 @@ let package = Package(
     products: [
         .library(
             name: "TaskTrigger",
-            targets: ["TaskTrigger"]),
+            targets: ["TaskTrigger"]
+        ),
     ],
     targets: [
         .target(
-            name: "TaskTrigger"),
+            name: "TaskTrigger"
+        ),
     ]
 )

@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct TaskTrigger<Value: Equatable>: Equatable {
+public struct TaskTrigger<Value: Equatable>: Equatable where Value: Sendable {
 
     internal enum TaskState<T: Equatable>: Equatable {
         case none
