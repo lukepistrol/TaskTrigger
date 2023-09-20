@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskTriggerViewModifier<Value: Equatable>: ViewModifier {
+struct TaskTriggerViewModifier<Value: Equatable>: ViewModifier where Value: Sendable {
 
     typealias Action = @Sendable (_ value: Value) async -> Void
 
