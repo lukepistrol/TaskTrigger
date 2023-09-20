@@ -8,6 +8,7 @@ Attach async tasks to SwiftUI views using a trigger mechanism. See [this](#the-s
 ## Table Of Contents
 
 - [Usage](#usage)
+- [Documentation](#documentation)
 - [Overview](#overview)
 - [The Problem](#the-problem)
 - [The Solution](#the-solution)
@@ -22,6 +23,12 @@ dependencies: [
 ```
 
 Make sure to `import TaskTrigger` in any location you'd want to use it.
+
+## Documentation
+
+The documentation is available [here](https://lukepistrol.github.io/TaskTrigger/documentation/tasktrigger).
+
+You can also have a look at the [sample project](https://github.com/lukepistrol/TaskTrigger/tree/main/TaskTriggerDemo/TaskTriggerDemo)
 
 ## Overview
 
