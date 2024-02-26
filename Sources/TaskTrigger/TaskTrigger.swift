@@ -1,3 +1,10 @@
+//
+//  TaskTrigger.swift
+//  TaskTrigger
+//
+//  Created by Lukas Pistrol on 16.09.23.
+//
+
 import SwiftUI
 
 public struct TaskTrigger<Value: Equatable>: Equatable where Value: Sendable {

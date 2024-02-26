@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  TaskTriggerViewModifier.swift
+//  TaskTrigger
 //
 //  Created by Lukas Pistrol on 16.09.23.
 //
