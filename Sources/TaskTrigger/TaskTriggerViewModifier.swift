@@ -19,9 +19,9 @@ struct TaskTriggerViewModifier<Value: Equatable>: ViewModifier where Value: Send
         self.action = action
     }
 
-    @Binding 
+    @Binding
     private var trigger: TaskTrigger<Value>
-    
+
     private let action: Action
 
     func body(content: Content) -> some View {

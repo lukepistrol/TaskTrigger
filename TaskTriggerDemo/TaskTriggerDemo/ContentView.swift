@@ -32,7 +32,7 @@ struct ContentView: View {
 
     @State private var randomTrigger = TaskTrigger<Int>()
     @State private var resetTrigger = PlainTaskTrigger()
-    
+
     var body: some View {
         VStack {
             Text(randomNumber, format: .number)

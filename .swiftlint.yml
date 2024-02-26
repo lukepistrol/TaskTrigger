@@ -1,0 +1,16 @@
+opt_in_rules:
+  - file_header
+
+excluded:
+  - Package.swift
+  - TaskTriggerDemo
+
+file_header:
+  severity: error
+  required_pattern: |
+    \/\/
+    \/\/  .+\.swift
+    \/\/  TaskTrigger
+    \/\/
+    \/\/  Created by .+ on \d{2}\.\d{2}\.\d{2}\.
+    \/\/

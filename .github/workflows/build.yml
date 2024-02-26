@@ -3,7 +3,7 @@ on: push
 
 jobs:
   build:
-    runs-on: macOS-13
+    runs-on: macos-14
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3

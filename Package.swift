@@ -1,10 +1,11 @@
 // swift-tools-version: 5.8
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
+let taskTrigger = "TaskTrigger"
+
 let package = Package(
-    name: "TaskTrigger",
+    name: taskTrigger,
     platforms: [
         .iOS(.v15),
         .macOS(.v12),
@@ -14,13 +15,13 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "TaskTrigger",
-            targets: ["TaskTrigger"]
+            name: taskTrigger,
+            targets: [taskTrigger]
         ),
     ],
     targets: [
         .target(
-            name: "TaskTrigger"
+            name: taskTrigger
         ),
     ]
 )

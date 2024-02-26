@@ -2,6 +2,7 @@
 
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Flukepistrol%2FTaskTrigger%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/lukepistrol/TaskTrigger)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Flukepistrol%2FTaskTrigger%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/lukepistrol/TaskTrigger)
+[![](https://img.shields.io/github/license/lukepistrol/TaskTrigger)](https://github.com/lukepistrol/TaskTrigger/blob/main/LICENSE)
 
 Attach async tasks to SwiftUI views using a trigger mechanism. See [this](#the-solution) for examples. 
 
