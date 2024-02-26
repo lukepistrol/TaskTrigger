@@ -1,0 +1,22 @@
+name: CI - Push
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: SwiftLint
+    uses: ./.github/workflows/lint.yml
+    secrets: inherit
+  build:
+    name: Build
+    needs: lint
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+  documentation:
+    name: Documentation
+    needs: [lint, build]
+    uses: ./.github/workflows/build-documentation.yml
+    secrets: inherit
