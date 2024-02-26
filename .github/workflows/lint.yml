@@ -2,7 +2,7 @@ name: lint
 on: push
 
 jobs:
-  build:
+  lint:
     runs-on: macos-14
     steps:
       - name: Checkout Repository
