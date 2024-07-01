@@ -39,6 +39,6 @@ public typealias PlainTaskTrigger = TaskTrigger<Bool>
 public extension PlainTaskTrigger {
     /// Triggers the tasks associated with this ``TaskTrigger/PlainTaskTrigger``.
     mutating func trigger() {
-        self.state = .active(value: true)
+        self.state = .active(value: true, uuid: .init())
     }
 }
