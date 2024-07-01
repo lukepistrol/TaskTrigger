@@ -6,7 +6,7 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    container: ghcr.io/realm/swiftlint:latest
+    container: ghcr.io/realm/swiftlint:0.55.1
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
