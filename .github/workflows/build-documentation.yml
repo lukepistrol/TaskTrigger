@@ -4,9 +4,12 @@ on:
   workflow_dispatch:
   workflow_call:
 
+env:
+  DEVELOPER_DIR: /Applications/Xcode_16.1.app/Contents/Developer
+
 jobs:
   build-documentation:
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
