@@ -8,11 +8,11 @@ SCHEME="TaskTrigger"
 DESTINATION=$1
 
 if [ -z "$DESTINATION" ]; then
-    echo "Missing argument: destination"
-    echo "Usage: $0 <destination>"
-    echo "destination: [iOS|macOS|watchOS|tvOS]"
-    exit 1
+	echo "Missing argument: destination"
+	echo "Usage: $0 <destination>"
+	echo "destination: [iOS|macOS|watchOS|tvOS|visionOS]"
+	exit 1
 fi
 
 set -o pipefail && xcodebuild clean build -scheme $SCHEME \
-    -destination "generic/platform=$DESTINATION" | xcpretty
+	-destination "generic/platform=$DESTINATION" | xcpretty
