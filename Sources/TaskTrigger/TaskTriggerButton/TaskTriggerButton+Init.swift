@@ -39,7 +39,7 @@ extension TaskTriggerButton {
     ///   - action: The async action to perform when the button is tapped.
     ///   - placeholder: The placeholder to show while the task is running. Defaults to a `ProgressView`.
     ///   If `showPlaceholder` on the `role` is set to `false`, this is ignored.
-    @available(iOS 17.0, *)
+    @available(iOS 17.0, macOS 14.0, tvOS 17.0, watchOS 10.0, *)
     public init(
         _ text: LocalizedStringKey,
         image: ImageResource,
