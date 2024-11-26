@@ -159,6 +159,17 @@ var body: some View {
 }
 ```
 
+### TaskTriggerButton
+
+To make it even simpler to use when using a `TaskTrigger` with a button, we can also use
+`TaskTriggerButton`. The following example is equivalent to the previous example:
+
+```swift
+TaskTriggerButton("Do Something") {
+    await someAsyncOperation()
+}
+```
+
 ## Contribution
 
 If you have any ideas on how to take this further I'm happy to discuss things in an issue.

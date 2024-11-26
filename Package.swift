@@ -3,7 +3,6 @@
 import PackageDescription
 
 let taskTrigger = "TaskTrigger"
-let taskTriggerUI = "TaskTriggerUI"
 
 let package = Package(
     name: taskTrigger,
@@ -18,22 +17,14 @@ let package = Package(
     products: [
         .library(
             name: taskTrigger,
-            targets: [taskTrigger]
+            targets: [
+                taskTrigger,
+            ]
         ),
-        .library(
-            name: taskTriggerUI,
-            targets: [taskTriggerUI]
-        )
     ],
     targets: [
         .target(
             name: taskTrigger
         ),
-        .target(
-            name: taskTriggerUI,
-            dependencies: [
-                .target(name: taskTrigger)
-            ]
-        )
     ]
 )
