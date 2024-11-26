@@ -2,7 +2,7 @@ opt_in_rules:
   - file_header
 
 excluded:
-  - Package.swift
+  - Package*.swift
   - TaskTriggerDemo
 
 file_header:
