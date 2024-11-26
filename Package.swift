@@ -17,7 +17,9 @@ let package = Package(
     products: [
         .library(
             name: taskTrigger,
-            targets: [taskTrigger]
+            targets: [
+                taskTrigger,
+            ]
         ),
     ],
     targets: [

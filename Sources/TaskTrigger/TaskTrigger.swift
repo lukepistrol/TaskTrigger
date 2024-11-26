@@ -9,17 +9,18 @@ import SwiftUI
 
 public struct TaskTrigger<Value: Equatable>: Equatable where Value: Sendable {
 
-    internal enum TaskState<T: Equatable>: Equatable {
+    public enum TaskState<T: Equatable>: Equatable {
         case none
         case active(value: T, uuid: UUID? = nil)
     }
 
-    /// Creates a new ``TaskTrigger/TaskTrigger``.
+    /// Creates a new ``TaskTrigger``.
     public init() {}
 
-    internal var state: TaskState<Value> = .none
+    /// The current state of the task.
+    public private(set) var state: TaskState<Value> = .none
 
-    /// Triggers the tasks associated with this ``TaskTrigger/TaskTrigger`` and passes along a value of type `Value`.
+    /// Triggers the tasks associated with this ``TaskTrigger`` and passes along a value of type `Value`.
     /// - Parameters:
     ///   - value: The value to pass along.
     ///   - id: (Optional) An UUID which by default is initialized each time this method gets called.
@@ -37,7 +38,7 @@ public struct TaskTrigger<Value: Equatable>: Equatable where Value: Sendable {
 public typealias PlainTaskTrigger = TaskTrigger<Bool>
 
 public extension PlainTaskTrigger {
-    /// Triggers the tasks associated with this ``TaskTrigger/PlainTaskTrigger``.
+    /// Triggers the tasks associated with this ``PlainTaskTrigger``.
     mutating func trigger() {
         self.state = .active(value: true, uuid: .init())
     }

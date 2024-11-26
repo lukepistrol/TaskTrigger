@@ -10,7 +10,7 @@ import SwiftUI
 public extension View {
     /// Adds a task to perform whenever the specified trigger with an attached value fires.
     /// - Parameters:
-    ///   - trigger: A binding to a ``TaskTrigger/TaskTrigger``.
+    ///   - trigger: A binding to a ``TaskTrigger``.
     ///   - action: An async action to perform whenever the trigger fires. The attached value
     ///   is passed into the closure as an argument.
     func task<Value: Equatable>(
@@ -22,7 +22,7 @@ public extension View {
 
     /// Adds a task to perform whenever the specified trigger fires.
     /// - Parameters:
-    ///   - trigger: A binding to a ``TaskTrigger/PlainTaskTrigger``.
+    ///   - trigger: A binding to a ``PlainTaskTrigger``.
     ///   - action: An async action to perform whenever the trigger fires.
     func task(
         _ trigger: Binding<PlainTaskTrigger>,

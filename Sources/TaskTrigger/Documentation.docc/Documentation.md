@@ -78,7 +78,7 @@ hold the state in a view model.
 ## The Solution
 
 To make things simpler on the caller's side let's wrap all of this functionality inside
-a simple type ``TaskTrigger/TaskTrigger``.
+a simple type ``TaskTrigger``.
 
 ```swift
 @State var trigger = TaskTrigger<Int>()
@@ -96,10 +96,10 @@ var body: some View {
 ```
 
 1. We declare a new state variable `trigger` and initialize the `TaskTrigger` of type `Int`.
-2. In our button we call the ``TaskTrigger/TaskTrigger/trigger(value:id:)`` method on our `trigger` and pass in our value.
+2. In our button we call the ``TaskTrigger/trigger(value:id:)`` method on our `trigger` and pass in our value.
 3. We attach a new variant of the `task` view modifier to our view and bind it to our `trigger`.
 4. The body will only execute when the `trigger` was triggered. The value we passed into the 
-``TaskTrigger/TaskTrigger/trigger(value:id:)`` method earlier gets passed into the closure as an argument.
+``TaskTrigger/trigger(value:id:)`` method earlier gets passed into the closure as an argument.
 5. All cancellation related handling, sanity checking, as well as resetting the state is handled
 automatically behind the scenes.
 
@@ -110,7 +110,7 @@ automatically behind the scenes.
 > In case you don't want that to happen explicitly set the `id` parameter and it won't cancel
 > prior operations since both the `value` and `id` are still the same.
 
-For triggers that don't need to attach a value, we can simply use ``TaskTrigger/PlainTaskTrigger`` (which is a 
+For triggers that don't need to attach a value, we can simply use ``PlainTaskTrigger`` (which is a 
 typealias for `TaskTrigger<Bool>`):
 
 ```swift
@@ -126,9 +126,24 @@ var body: some View {
 }
 ```
 
+### TaskTriggerButton
+
+To make it even simpler to use when using a ``TaskTrigger`` with a button, we can also use
+``TaskTriggerButton``. The following example is equivalent to the previous example:
+
+```swift
+TaskTriggerButton("Do Something") {
+    await someAsyncOperation()
+}
+```
+
 ## Topics
 
 ### Triggers
 
-- ``TaskTrigger/TaskTrigger``
-- ``TaskTrigger/PlainTaskTrigger``
+- ``TaskTrigger``
+- ``PlainTaskTrigger``
+
+### Views
+
+- ``TaskTriggerButton``
