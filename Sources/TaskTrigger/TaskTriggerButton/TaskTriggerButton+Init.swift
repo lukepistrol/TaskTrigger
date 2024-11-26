@@ -1,6 +1,6 @@
 //
 //  TaskTriggerButton+Init.swift
-//  TaskTriggerUI
+//  TaskTrigger
 //
 //  Created by Lukas Pistrol on 26.11.24.
 //
