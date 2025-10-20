@@ -32,13 +32,11 @@ struct TaskTriggerViewModifier<Value: Equatable>: ViewModifier where Value: Send
                     return
                 }
 
+                // reset the trigger's state to none to allow re-triggering in the future.
+                defer { trigger.cancel() }
+
                 // execute the async work.
                 await action(value)
-
-                // if not already cancelled, reset the trigger.
-                if !Task.isCancelled {
-                    self.trigger.cancel()
-                }
             }
     }
 }
