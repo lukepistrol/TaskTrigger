@@ -24,20 +24,14 @@ extension TaskTriggerButton {
 
         var showPlaceholder: Bool {
             switch self {
-            case .blocking(let showPlaceholder):
-                return showPlaceholder
-            case .cancellable(let showPlaceholder):
-                return showPlaceholder
-            case .restart(let showPlaceholder):
-                return showPlaceholder
+            case .blocking(let show), .cancellable(let show), .restart(let show):
+                return show
             }
         }
 
         var isBlocking: Bool {
-            if case .blocking = self {
-                return true
-            }
-            return false
+            guard case .blocking = self else { return false }
+            return true
         }
     }
 }

@@ -27,16 +27,16 @@ struct TaskTriggerViewModifier<Value: Equatable>: ViewModifier where Value: Send
     func body(content: Content) -> some View {
         content
             .task(id: trigger.state) {
-                // check that the trigger's state is indeed active and obtain the value.
+                // Check that the trigger's state is indeed active and obtain the value.
                 guard case let .active(value, _) = trigger.state else {
                     return
                 }
 
-                // reset the trigger's state to none to allow re-triggering in the future.
-                defer { trigger.cancel() }
-
-                // execute the async work.
+                // Execute the async work.
                 await action(value)
+                
+                // Reset the trigger's state to none to allow re-triggering in the future.
+                trigger.cancel()
             }
     }
 }

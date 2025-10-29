@@ -78,30 +78,34 @@ public struct TaskTriggerButton<L: View, P: View>: View {
     @State private var trigger = PlainTaskTrigger()
 
     public var body: some View {
+        let isActive = trigger.state != .none
+        
         Button(role: role) {
-            switch trigger.state {
-            case .none:
+            if isActive {
+                handleActiveState()
+            } else {
                 trigger.trigger()
-            case .active:
-                if case .cancellable = behavior {
-                    trigger.cancel()
-                } else if case .restart = behavior {
-                    trigger.trigger()
-                }
             }
         } label: {
-            switch trigger.state {
-            case .none:
+            if isActive && behavior.showPlaceholder {
+                placeholder()
+            } else {
                 label()
-            case .active:
-                if behavior.showPlaceholder {
-                    placeholder()
-                } else {
-                    label()
-                }
             }
         }
-        .disabled(behavior.isBlocking && trigger.state != .none)
+        .disabled(behavior.isBlocking && isActive)
         .task($trigger, action)
+    }
+    
+    /// Handles button action when a task is already active.
+    private func handleActiveState() {
+        switch behavior {
+        case .cancellable:
+            trigger.cancel()
+        case .restart:
+            trigger.trigger()
+        case .blocking:
+            break
+        }
     }
 }
