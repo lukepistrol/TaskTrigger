@@ -108,22 +108,19 @@ struct TaskTriggerButtonExampleView: View {
     }
 
     private func test() async {
-        defer {
-            print("")
-            Task {
-                await reset()
-            }
-        }
         state = .loading
         print("Triggered")
         try? await Task.sleep(nanoseconds: 2_000_000_000)
         if Task.isCancelled {
             state = .cancelled
             print("Cancelled")
+            await reset()
             return
         }
         state = .success
         print("Waited 2s")
+        print("")
+        await reset()
     }
 
     private func reset() async {

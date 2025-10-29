@@ -11,7 +11,7 @@ public struct TaskTrigger<Value: Equatable>: Equatable where Value: Sendable {
 
     public enum TaskState<T: Equatable>: Equatable {
         case none
-        case active(value: T, uuid: UUID? = nil)
+        case active(value: T, uuid: UUID)
     }
 
     /// Creates a new ``TaskTrigger``.
@@ -29,12 +29,14 @@ public struct TaskTrigger<Value: Equatable>: Equatable where Value: Sendable {
     /// 
     /// - Note: A new UUID is created by default to ensure that repeated triggers cancel and restart the task.
     /// For scenarios where re-triggering should be prevented with the same value, pass a stable UUID.
+    @inlinable
     mutating public func trigger(value: Value, id: UUID? = nil) {
         let identifier = id ?? UUID()
         self.state = .active(value: value, uuid: identifier)
     }
 
     /// Cancels the active task.
+    @inlinable
     mutating public func cancel() {
         self.state = .none
     }
@@ -44,6 +46,7 @@ public typealias PlainTaskTrigger = TaskTrigger<Bool>
 
 public extension PlainTaskTrigger {
     /// Triggers the tasks associated with this ``PlainTaskTrigger``.
+    @inlinable
     mutating func trigger() {
         self.state = .active(value: true, uuid: .init())
     }

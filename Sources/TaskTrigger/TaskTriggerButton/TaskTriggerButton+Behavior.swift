@@ -22,6 +22,7 @@ extension TaskTriggerButton {
         /// is running.
         case restart(showPlaceholder: Bool)
 
+        @inlinable
         var showPlaceholder: Bool {
             switch self {
             case .blocking(let show), .cancellable(let show), .restart(let show):
@@ -29,6 +30,7 @@ extension TaskTriggerButton {
             }
         }
 
+        @inlinable
         var isBlocking: Bool {
             guard case .blocking = self else { return false }
             return true
